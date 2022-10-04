@@ -1,0 +1,31 @@
+{% extends "Proyecto_WebApp/base.html"%}
+
+{% load static %}
+
+{% block tittle %}
+
+ Contacto
+{% endblock %}
+
+{% block content %}
+   <!-- Heading -->
+   <div class="contenedorFormulario">
+
+        {% if "valido" in request.GET %}
+
+            <p style="color: white"; > Información enviada correctamente</p>
+
+        {% endif %}
+
+        <form action="" method="POST" style="text-align: center;">
+            {% csrf_token %} <!--agrega un campo oculto a modo de llave evita error de envio de formulario -->
+            <table style="color: white; margin: 20px auto;"> {{miFormulario.as_table}}</table>
+            <input type="submit" value="Enviar" style="width: 150px;">
+        </form>
+
+    </div>
+
+         
+    <!-- Message -->
+    
+{% endblock %}
